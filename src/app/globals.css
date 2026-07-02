@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+/* ── Variables de thème — Espace & Aéronautique ─────────────────── */
+:root {
+  /* Thème par défaut : espace profond */
+  --background: #000918;
+  --foreground: rgba(215, 237, 255, 0.9);
+  --border: rgba(56, 189, 248, 0.14);
+  --input: rgba(56, 189, 248, 0.08);
+  --ring: rgba(56, 189, 248, 0.4);
+  --glass-bg: rgba(0, 15, 50, 0.22);
+  --glass-border: rgba(56, 189, 248, 0.14);
+  --destructive: #ef4444;
+
+  /* Accents spatiaux */
+  --accent-blue: #0ea5e9;
+  --accent-deep: #1e40af;
+  --accent-electric: #38bdf8;
+
+  --radius: 0.625rem;
+}
+
+[data-theme="dark"] {
+  --background: #000918;
+  --foreground: rgba(215, 237, 255, 0.9);
+  --border: rgba(56, 189, 248, 0.14);
+  --input: rgba(56, 189, 248, 0.08);
+  --ring: rgba(56, 189, 248, 0.4);
+  --glass-bg: rgba(0, 15, 50, 0.22);
+  --glass-border: rgba(56, 189, 248, 0.14);
+}
+
+[data-theme="light"] {
+  --background: #f0f7ff;
+  --foreground: #0a1628;
+  --border: rgba(14, 165, 233, 0.2);
+  --input: rgba(14, 165, 233, 0.08);
+  --ring: rgba(14, 165, 233, 0.35);
+  --glass-bg: rgba(240, 247, 255, 0.65);
+  --glass-border: rgba(14, 165, 233, 0.2);
+}
+
+/* ── Tailwind v4 — token mapping ────────────────────────────────── */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+}
+
+/* ── Base ───────────────────────────────────────────────────────── */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  h3 {
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  h4 {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+}
+
+/* ── Scrollbar Personnalisée ────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--glass-border);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ring);
+}
+
+/* Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--glass-border) var(--background);
+}
