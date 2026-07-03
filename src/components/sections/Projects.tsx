@@ -21,10 +21,9 @@ type Project = {
 // ── Données projets ───────────────────────────────────────────────
 const PROJECTS: Project[] = [
   {
-    title: "GALACTIC Market",
+    title: "L3i — GALACTIC Market",
     desc: "Publication et distribution de paquets Python via une CLI conforme PEP503, avec pipeline CI/CD intégré",
-    image:
-      "https://images.unsplash.com/photo-1647166545674-ce28ce93bdca?w=1080",
+    image: "/assets/images/galactic_overview.webp",
     tags: ["Python", "Click", "Docker", "GitLab CI/CD"],
     links: [
       {
@@ -45,10 +44,9 @@ const PROJECTS: Project[] = [
     ],
   },
   {
-    title: "Mission Spatiale",
+    title: "CDE — Projet spatial",
     desc: "Système logiciel pour le Commandement de l'Espace : architecture microservices avec qualité logicielle industrielle",
-    image:
-      "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1080",
+    image: "/assets/images/spatiale_overview.webp",
     tags: ["Python", "FastAPI", "Docker", "GitLab"],
     confidential: true,
     links: [],
@@ -56,8 +54,7 @@ const PROJECTS: Project[] = [
   {
     title: "VeriDegree",
     desc: "DApp de certification décentralisée : émission et vérification de diplômes via tokens Soulbound non-transférables",
-    image:
-      "https://images.unsplash.com/photo-1639762681057-408e52192e55?w=1080",
+    image: "/assets/images/veridegree_overview.webp",
     tags: ["Solidity", "Next.js", "Besu", "MetaMask"],
     links: [
       {
@@ -75,16 +72,14 @@ const PROJECTS: Project[] = [
   {
     title: "Agentic AI for Retail",
     desc: "Dashboard retail piloté par IA locale : analyse autonome des ventes et détection proactive des seuils critiques",
-    image:
-      "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1080",
+    image: "/assets/images/agenticai_overview.webp",
     tags: ["React", "TypeScript", "Python", "LLM"],
     links: [{ label: "Rapport", icon: FileText }],
   },
   {
     title: "Portfolio",
     desc: "Portfolio développeur avec déploiement continu automatisé GitHub Actions → Firebase Hosting",
-    image:
-      "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1080",
+    image: "/assets/images/portfolio_overview.webp",
     tags: ["Next.js", "TypeScript", "GitHub Actions", "Firebase"],
     links: [
       {
@@ -97,8 +92,7 @@ const PROJECTS: Project[] = [
   {
     title: "2048",
     desc: "Application Android du jeu 2048 enrichie de fonctionnalités originales, publiable sur Google Play",
-    image:
-      "https://images.unsplash.com/photo-1611996575749-79a3a250f948?w=1080",
+    image: "/assets/images/2048_overview.webp",
     tags: ["Java", "Android Studio", "XML"],
     links: [
       { label: "Rapport", icon: FileText },
@@ -112,23 +106,21 @@ const PROJECTS: Project[] = [
   {
     title: "GeoAlt",
     desc: "Cartographie interactive d'indices de mobilité territoriale sur open data, pilotée en chef de projet d'une équipe de 5",
-    image: "https://images.unsplash.com/photo-1524661135-423995f22d0b?w=1080",
+    image: "/assets/images/geoalt_overview.webp",
     tags: ["PHP", "PostgreSQL", "Leaflet", "OpenData"],
     links: [{ label: "Rapport", icon: FileText }],
   },
   {
     title: "CyprigoApp",
     desc: "Bot Discord communautaire : modération, économie roleplay et interface web OAuth2 sur Firebase Realtime Database",
-    image:
-      "https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?w=1080",
+    image: "/assets/images/cyprigoapp_overview.webp",
     tags: ["JavaScript", "Node.js", "Firebase", "Discord API"],
     links: [],
   },
   {
     title: "Virus",
     desc: "Virus compagnon universitaire en C : propagation par infection d'exécutables à partir d'un vecteur initial",
-    image:
-      "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1080",
+    image: "/assets/images/virus_overview.webp",
     tags: ["C", "Cybersécurité", "Bas niveau", "ELF"],
     links: [
       { label: "Rapport", icon: FileText },
@@ -175,14 +167,19 @@ export function Projects() {
                   whileHover={{ scale: 1.02 }}
                   className="relative w-full h-40 lg:h-36 xl:h-44 bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-2xl overflow-hidden flex flex-col shadow-lg"
                 >
-                  {/* Dégradé bleu spatial en attente des images officielles */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#06142e] via-[#0c234a] to-[#1b3b6f] opacity-85 group-hover:opacity-100 transition-all duration-300" />
+                  {/* Image de fond avec effet de zoom au hover */}
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-[0.65] transition-opacity duration-300"
+                  />
 
-                  {/* Contenu de la carte (toujours visible) */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#000918]/95 via-[#000918]/40 to-transparent flex flex-col p-5">
+                  {/* Contenu de la carte (toujours visible) avec fond très assombri */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#000918] via-[#000918]/70 to-[#000918]/30 flex flex-col p-5">
                     {/* Header : Titre + Liens alignés au centre */}
                     <div className="flex justify-between items-center gap-3 mb-3">
-                      <h3 className="text-white text-base lg:text-lg font-bold leading-none drop-shadow-sm line-clamp-1">
+                      <h3 className="text-white text-base lg:text-lg font-bold leading-none drop-shadow-md line-clamp-1">
                         {project.title}
                       </h3>
 
@@ -215,7 +212,7 @@ export function Projects() {
 
                     {/* Description au milieu */}
                     <div className="mb-4">
-                      <p className="text-white/80 text-xs lg:text-[13px] leading-relaxed line-clamp-2 drop-shadow-sm">
+                      <p className="text-white/90 text-xs lg:text-[13px] leading-relaxed line-clamp-2 drop-shadow-md">
                         {project.desc}
                       </p>
                     </div>
