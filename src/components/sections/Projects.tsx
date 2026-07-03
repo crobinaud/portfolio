@@ -140,15 +140,15 @@ const PROJECTS: Project[] = [
 // ── Composant ─────────────────────────────────────────────────────
 export function Projects() {
   return (
-    <section className="h-full py-12 lg:py-16 w-full flex items-center justify-center relative overflow-hidden">
-      <div className="container mx-auto px-6 lg:px-12 relative z-10 h-full flex flex-col justify-center py-12">
+    <section className="min-h-[100dvh] md:min-h-0 h-full pt-[12dvh] pb-[4dvh] w-full flex flex-col relative overflow-hidden">
+      <div className="container mx-auto px-6 lg:px-12 relative z-10 flex flex-col justify-center my-auto">
         {/* En-tête */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-10 lg:mb-12"
+          className="text-center mb-[4dvh]"
         >
           <span className="inline-block text-sky-500 text-sm tracking-widest uppercase mb-2 font-mono">
             Mes Projets
@@ -173,7 +173,7 @@ export function Projects() {
               >
                 <motion.div
                   whileHover={{ scale: 1.02 }}
-                  className="relative w-full h-40 lg:h-44 bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-2xl overflow-hidden flex flex-col shadow-lg"
+                  className="relative w-full h-40 lg:h-36 xl:h-44 bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-2xl overflow-hidden flex flex-col shadow-lg"
                 >
                   {/* Dégradé bleu spatial en attente des images officielles */}
                   <div className="absolute inset-0 bg-gradient-to-br from-[#06142e] via-[#0c234a] to-[#1b3b6f] opacity-85 group-hover:opacity-100 transition-all duration-300" />

@@ -68,6 +68,15 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  @media (min-width: 768px) {
+    html {
+      /* Adaptation fluide augmentée : 2.0dvh permet un rendu beaucoup plus grand 
+         (presque 16px sur une petite fenêtre de 700px de haut)
+         sans risquer la superposition, et remplit mieux les grands écrans. */
+      font-size: clamp(10px, 2.0dvh, 32px);
+    }
+  }
+
   body {
     background-color: var(--background);
     color: var(--foreground);

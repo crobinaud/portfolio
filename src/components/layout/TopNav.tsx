@@ -22,10 +22,10 @@ export function TopNav({ currentSection, onNavigate }: TopNavProps) {
       initial={{ opacity: 0, y: -24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed top-5 left-1/2 -translate-x-1/2 z-50"
+      className="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-50"
       aria-label="Navigation principale"
     >
-      <div className="flex items-center gap-1 px-2 py-1.5 rounded-full bg-[var(--glass-bg)] backdrop-blur-2xl border border-[var(--glass-border)] shadow-[0_8px_32px_rgba(0,0,0,0.25),0_0_0_1px_rgba(255,255,255,0.03)]">
+      <div className="flex items-center gap-2 px-2 py-2 sm:px-3 sm:py-2.5 rounded-full bg-[var(--glass-bg)] backdrop-blur-2xl border border-[var(--glass-border)] shadow-[0_8px_32px_rgba(0,0,0,0.25),0_0_0_1px_rgba(255,255,255,0.03)]">
         {SECTIONS.map((section, i) => {
           const isActive = currentSection === i;
           return (
@@ -34,7 +34,7 @@ export function TopNav({ currentSection, onNavigate }: TopNavProps) {
               onClick={() => onNavigate(i)}
               aria-label={section.label}
               aria-current={isActive ? "page" : undefined}
-              className="relative flex items-center gap-2 px-3 sm:px-3.5 py-2 rounded-full transition-colors duration-200 group"
+              className="relative flex items-center gap-2.5 px-3.5 sm:px-5 py-2.5 rounded-full transition-colors duration-200 group"
             >
               {/* Active pill – behind icon/label */}
               {isActive && (
@@ -46,7 +46,7 @@ export function TopNav({ currentSection, onNavigate }: TopNavProps) {
               )}
 
               <section.icon
-                className={`relative z-10 w-4 h-4 shrink-0 transition-colors duration-200 ${
+                className={`relative z-10 w-5 h-5 shrink-0 transition-colors duration-200 ${
                   isActive
                     ? "text-sky-400"
                     : "text-foreground/35 group-hover:text-foreground/65"
@@ -54,7 +54,7 @@ export function TopNav({ currentSection, onNavigate }: TopNavProps) {
               />
 
               <span
-                className={`hidden md:block relative z-10 text-xs font-medium whitespace-nowrap leading-none transition-colors duration-200 ${
+                className={`hidden md:block relative z-10 text-sm font-medium whitespace-nowrap leading-none transition-colors duration-200 ${
                   isActive
                     ? "text-sky-300"
                     : "text-foreground/40 group-hover:text-foreground/70"

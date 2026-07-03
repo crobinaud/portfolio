@@ -117,15 +117,15 @@ export function About() {
   ]);
 
   return (
-    <section className="h-full py-12 lg:py-20 w-full flex items-center justify-center relative overflow-hidden">
-      <div className="container mx-auto px-6 lg:px-12 relative z-10 h-full flex flex-col justify-center">
+    <section className="min-h-[100dvh] md:min-h-0 h-full pt-[12dvh] pb-[4dvh] w-full flex flex-col relative overflow-hidden">
+      <div className="container mx-auto px-6 lg:px-12 relative z-10 flex flex-col justify-center my-auto">
         {/* En-tête */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-10 lg:mb-12"
+          className="text-center mb-[4dvh]"
         >
           <span className="inline-block text-sky-500 text-sm tracking-widest uppercase mb-2 font-mono">
             À Propos
@@ -147,7 +147,7 @@ export function About() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="bg-[var(--glass-bg)] backdrop-blur-xl border border-[var(--glass-border)] rounded-3xl p-6 lg:p-7 relative overflow-hidden group h-full flex flex-col justify-center"
+                className="bg-[var(--glass-bg)] backdrop-blur-xl border border-[var(--glass-border)] rounded-3xl p-6 lg:p-5 xl:p-7 relative overflow-hidden group h-full flex flex-col justify-center"
               >
                 <div className="relative z-10">
                   <h3 className="text-xl font-semibold mb-4 text-foreground/90 flex items-center gap-2">
@@ -200,7 +200,7 @@ export function About() {
               </div>
 
               {/* Complete Background Matrix */}
-              <div className="bg-[var(--glass-bg)] backdrop-blur-xl border border-[var(--glass-border)] rounded-3xl p-5 lg:p-6 flex-grow flex flex-col justify-center">
+              <div className="bg-[var(--glass-bg)] backdrop-blur-xl border border-[var(--glass-border)] rounded-3xl p-5 lg:p-4 xl:p-6 flex-grow flex flex-col justify-center">
                 <div className="grid sm:grid-cols-2 gap-6">
                   {skillCategories.map((category, i) => (
                     <motion.div

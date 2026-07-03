@@ -144,7 +144,7 @@ export function Hero() {
   const [photoError, setPhotoError] = useState(false);
 
   return (
-    <section className="h-screen w-full flex items-center justify-center relative overflow-hidden">
+    <section className="min-h-[100dvh] md:min-h-0 h-full w-full flex flex-col relative overflow-hidden pt-[12dvh] pb-[4dvh]">
       <ParticleCanvas />
 
       {/* Vignette radiale */}
@@ -156,7 +156,7 @@ export function Hero() {
         }}
       />
 
-      <div className="container mx-auto px-6 lg:px-12 relative z-10">
+      <div className="container mx-auto px-6 lg:px-12 relative z-10 my-auto">
         <div className="max-w-7xl mx-auto w-full">
           <div className="flex flex-col lg:flex-row-reverse items-center justify-between gap-12 lg:gap-16 xl:gap-20">
             {/* Photo de profil */}
@@ -166,7 +166,7 @@ export function Hero() {
               transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
               className="flex-shrink-0"
             >
-              <div className="relative w-64 h-64 lg:w-80 lg:h-80 xl:w-[350px] xl:h-[350px]">
+              <div className="relative w-48 h-48 sm:w-64 sm:h-64 lg:w-64 lg:h-64 xl:w-80 xl:h-80 2xl:w-[22rem] 2xl:h-[22rem]">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-sky-400 rounded-full blur-2xl opacity-20" />
                 {photoError ? (
                   <div
@@ -215,7 +215,7 @@ export function Hero() {
                 }}
                 className="mb-5"
               >
-                <h1 className="text-5xl lg:text-7xl xl:text-[5.5rem] font-light leading-tight mb-4">
+                <h1 className="text-4xl sm:text-5xl lg:text-7xl xl:text-[5.5rem] font-light leading-tight mb-4">
                   <span className="block text-foreground/90 tracking-tight">
                     Cyprien
                   </span>
@@ -245,13 +245,13 @@ export function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.45 }}
-                className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-8"
+                className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 mb-8 w-full"
               >
                 <motion.a
                   href="#contact"
                   whileHover={{ scale: 1.04, y: -1 }}
                   whileTap={{ scale: 0.96 }}
-                  className="px-7 py-3.5 bg-gradient-to-r from-sky-500 to-blue-600 text-white rounded-xl flex items-center gap-2.5 shadow-lg shadow-blue-500/20 hover:shadow-sky-500/25 transition-shadow group text-sm font-medium"
+                  className="px-7 py-3.5 w-full sm:w-auto justify-center bg-gradient-to-r from-sky-500 to-blue-600 text-white rounded-xl flex items-center gap-2.5 shadow-lg shadow-blue-500/20 hover:shadow-sky-500/25 transition-shadow group text-sm font-medium"
                 >
                   Prendre contact
                   <Mail className="w-4 h-4 group-hover:rotate-12 transition-transform" />
@@ -261,7 +261,7 @@ export function Hero() {
                   href="#projects"
                   whileHover={{ scale: 1.04, y: -1 }}
                   whileTap={{ scale: 0.96 }}
-                  className="px-7 py-3.5 bg-white/[0.05] backdrop-blur-xl border border-white/[0.10] text-foreground/80 rounded-xl hover:border-white/20 hover:bg-white/[0.08] transition-all text-sm font-medium"
+                  className="px-7 py-3.5 w-full sm:w-auto justify-center flex items-center bg-white/[0.05] backdrop-blur-xl border border-white/[0.10] text-foreground/80 rounded-xl hover:border-white/20 hover:bg-white/[0.08] transition-all text-sm font-medium"
                 >
                   Voir mes projets
                 </motion.a>
@@ -272,7 +272,7 @@ export function Hero() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.65 }}
-                className="flex items-center justify-center lg:justify-start gap-2.5"
+                className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 w-full"
               >
                 {[
                   {
@@ -293,7 +293,7 @@ export function Hero() {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.06, y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex items-center gap-2.5 px-5 h-12 rounded-xl bg-white/[0.05] backdrop-blur-xl border border-white/[0.09] text-foreground/55 hover:text-sky-400 hover:border-sky-500/40 transition-all"
+                    className="flex flex-1 sm:flex-none justify-center items-center gap-2.5 px-4 sm:px-5 h-12 rounded-xl bg-white/[0.05] backdrop-blur-xl border border-white/[0.09] text-foreground/55 hover:text-sky-400 hover:border-sky-500/40 transition-all"
                     aria-label={s.label}
                   >
                     <img
@@ -305,7 +305,7 @@ export function Hero() {
                   </motion.a>
                 ))}
 
-                <div className="w-px h-5 bg-white/12 mx-0.5" />
+                <div className="hidden sm:block w-px h-5 bg-white/12 mx-0.5" />
 
                 <motion.a
                   href="/assets/documents/cv-cyprien-robinaud.pdf"
@@ -313,7 +313,7 @@ export function Hero() {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.04, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="flex items-center gap-2.5 px-5 h-12 rounded-xl bg-white/[0.05] backdrop-blur-xl border border-white/[0.09] text-foreground/45 hover:text-foreground/75 hover:border-white/18 transition-all group"
+                  className="flex w-full sm:w-auto justify-center items-center gap-2.5 px-5 h-12 rounded-xl bg-white/[0.05] backdrop-blur-xl border border-white/[0.09] text-foreground/45 hover:text-foreground/75 hover:border-white/18 transition-all group"
                   aria-label="Télécharger le CV"
                 >
                   <FileDown className="w-5 h-5 flex-shrink-0 group-hover:-translate-y-0.5 transition-transform" />

@@ -43,13 +43,13 @@ export default function HomePage() {
       {/* Barre de navigation top – centrée, pill glassmorphism */}
       <TopNav currentSection={currentSection} onNavigate={navigate} />
 
-      {/* Scroll avec snap (1 section = 1 vue) */}
-      <main className="w-full h-screen overflow-y-auto snap-y snap-mandatory relative flex flex-col z-10 scroll-smooth">
+      {/* Scroll fluide sur mobile, snap (1 section = 1 vue) sur PC */}
+      <main className="w-full h-[100dvh] overflow-y-auto md:snap-y md:snap-mandatory relative flex flex-col z-10 scroll-smooth">
         {SECTIONS.map((Section, i) => (
           <div
             key={i}
             id={SECTION_IDS[i]}
-            className="w-full h-screen shrink-0 snap-start relative flex flex-col overflow-hidden"
+            className="w-full min-h-[100dvh] md:min-h-0 md:h-[100dvh] shrink-0 md:snap-start relative flex flex-col overflow-x-hidden md:overflow-hidden scroll-mt-20 md:scroll-mt-0"
           >
             <Section />
             {i < SECTIONS.length - 1 && <SectionDivider />}

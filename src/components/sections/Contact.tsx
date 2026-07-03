@@ -104,7 +104,7 @@ export function Contact() {
   };
 
   return (
-    <section className="h-full pt-16 pb-8 lg:pt-24 lg:pb-12 w-full flex items-center justify-center relative overflow-hidden">
+    <section className="min-h-[100dvh] md:min-h-0 h-full pt-[12dvh] pb-[4dvh] w-full flex flex-col relative overflow-hidden">
       <ContactCanvas />
 
       {/* Vignette radiale */}
@@ -116,19 +116,19 @@ export function Contact() {
         }}
       />
 
-      <div className="container mx-auto px-6 lg:px-12 relative z-10 w-full h-full flex flex-col items-center justify-center py-10">
+      <div className="container mx-auto px-6 lg:px-12 relative z-10 w-full flex flex-col items-center justify-center my-auto">
         {/* En-tête */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-8 lg:mb-12"
+          className="text-center mb-[4dvh]"
         >
           <span className="inline-block text-sky-500 text-xs sm:text-sm tracking-widest uppercase mb-1 sm:mb-2 font-mono">
             Contact
           </span>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl">
+          <h2 className="text-2xl sm:text-3xl lg:text-3xl xl:text-4xl">
             Échangeons{" "}
             <span className="italic text-foreground/50">ensemble</span>
           </h2>
@@ -142,7 +142,7 @@ export function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="lg:col-span-7 bg-[var(--glass-bg)] backdrop-blur-xl border border-[var(--glass-border)] rounded-3xl p-6 sm:p-10 flex flex-col justify-between gap-8 shadow-2xl"
+            className="lg:col-span-7 bg-[var(--glass-bg)] backdrop-blur-xl border border-[var(--glass-border)] rounded-3xl p-6 sm:p-10 lg:p-6 xl:p-10 flex flex-col justify-between gap-8 shadow-2xl"
           >
             <div className="flex flex-col gap-6">
               <div className="flex items-center gap-4">
