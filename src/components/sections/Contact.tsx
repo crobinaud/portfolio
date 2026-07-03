@@ -4,9 +4,12 @@ import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { MapPin, Mail, User, Copy, Check } from "lucide-react";
 
+import { useApp } from "@/context/AppContext";
+
 // ── Fond géométrique animé ────────────────────────────────────────
 function ContactCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const { theme } = useApp();
 
   useEffect(() => {
     const canvas = canvasRef.current!;
@@ -42,7 +45,7 @@ function ContactCanvas() {
         ctx.beginPath();
         ctx.arc(0, 0, r, 0, Math.PI * 2);
         ctx.setLineDash([6, ring % 2 === 0 ? 14 : 22]);
-        ctx.strokeStyle = `rgba(139,92,246,${alpha})`;
+        ctx.strokeStyle = `rgba(139,92,246,${alpha * (theme === "light" ? 0.4 : 1)})`;
         ctx.lineWidth = 1;
         ctx.stroke();
         ctx.setLineDash([]);
@@ -51,7 +54,7 @@ function ContactCanvas() {
           const a = (d / 6) * Math.PI * 2 + angle * 2;
           ctx.beginPath();
           ctx.arc(Math.cos(a) * r, Math.sin(a) * r, 1.5, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(139,92,246,${alpha * 2.5})`;
+          ctx.fillStyle = `rgba(139,92,246,${alpha * 2.5 * (theme === "light" ? 0.5 : 1)})`;
           ctx.fill();
         }
 
@@ -68,7 +71,7 @@ function ContactCanvas() {
         const sr = 20 + s * 16;
         ctx.beginPath();
         ctx.arc(0, 0, sr, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(34,211,238,${0.05 - s * 0.01})`;
+        ctx.strokeStyle = `rgba(34,211,238,${(0.05 - s * 0.01) * (theme === "light" ? 0.5 : 1)})`;
         ctx.lineWidth = 1;
         ctx.stroke();
       }
@@ -82,7 +85,7 @@ function ContactCanvas() {
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", resize);
     };
-  }, []);
+  }, [theme]);
 
   return (
     <canvas
@@ -112,7 +115,7 @@ export function Contact() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 70% 50% at 50% 50%, transparent 30%, rgba(0,0,0,0.5) 100%)",
+            "radial-gradient(ellipse 70% 50% at 50% 50%, transparent 30%, var(--vignette) 100%)",
         }}
       />
 
@@ -170,7 +173,7 @@ export function Contact() {
                 onClick={handleCopy}
                 whileHover={{ scale: 1.04, y: -1 }}
                 whileTap={{ scale: 0.96 }}
-                className="px-5 py-3.5 bg-white/[0.05] backdrop-blur-xl text-foreground/90 rounded-xl flex items-center justify-center gap-2.5 border border-white/[0.10] hover:border-white/20 hover:bg-white/[0.08] shadow-lg hover:shadow-white/5 transition-all text-sm font-medium whitespace-nowrap flex-1"
+                className="px-5 py-3.5 bg-[var(--glass-bg)] backdrop-blur-xl text-foreground/90 rounded-xl flex items-center justify-center gap-2.5 border border-[var(--glass-border)] hover:border-[var(--ring)] hover:bg-[var(--glass-bg)] shadow-lg hover:shadow-sky-500/5 transition-all text-sm font-medium whitespace-nowrap flex-1"
               >
                 {copied ? (
                   <Check className="w-4.5 h-4.5 text-green-400 shrink-0" />
@@ -202,7 +205,7 @@ export function Contact() {
               {/* Contenu Profil */}
               <div className="px-6 pb-6 relative flex flex-col pt-12 flex-1">
                 {/* Photo de profil (overlaps banner) */}
-                <div className="absolute -top-10 left-6 w-20 h-20 rounded-full border-4 border-[var(--glass-border)] overflow-hidden bg-slate-900 shadow-md">
+                <div className="absolute -top-10 left-6 w-20 h-20 rounded-full border-4 border-[var(--glass-border)] overflow-hidden bg-background shadow-md">
                   <img
                     src="https://gravatar.com/avatar/f675b67bcdb8f19096f687531f3cc3890612bcf8a6e8dcd46be05896b48837bd?s=150"
                     alt="Cyprien Robinaud"
@@ -215,7 +218,7 @@ export function Contact() {
 
                 <div className="flex flex-col gap-1 flex-1">
                   <div className="flex items-center gap-1.5">
-                    <span className="text-base font-bold text-white tracking-tight">
+                    <span className="text-base font-bold text-foreground tracking-tight">
                       Cyprien Robinaud
                     </span>
                     {/* Badge vérifié bleu type LinkedIn */}

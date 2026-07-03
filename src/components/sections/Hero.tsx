@@ -170,8 +170,8 @@ export function Hero() {
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-sky-400 rounded-full blur-2xl opacity-20" />
                 {photoError ? (
                   <div
-                    className="relative w-full h-full rounded-full bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center z-10"
-                    style={{ border: "1px solid rgba(255,255,255,0.08)" }}
+                    className="relative w-full h-full rounded-full bg-[var(--glass-bg)] flex items-center justify-center z-10"
+                    style={{ border: "1px solid var(--glass-border)" }}
                   >
                     <span className="text-5xl lg:text-6xl font-light bg-gradient-to-br from-sky-300 to-blue-500 bg-clip-text text-transparent select-none">
                       CR
@@ -186,8 +186,8 @@ export function Hero() {
                     height={400}
                     fetchPriority="high"
                     onError={() => setPhotoError(true)}
-                    className="relative w-full h-full rounded-full object-cover bg-slate-900 z-10"
-                    style={{ border: "1px solid rgba(255,255,255,0.08)" }}
+                    className="relative w-full h-full rounded-full object-cover bg-background z-10"
+                    style={{ border: "1px solid var(--glass-border)" }}
                   />
                 )}
                 {/* Carré rotatif de style HUD (plus petit que la photo) */}
@@ -261,7 +261,7 @@ export function Hero() {
                   href="#projects"
                   whileHover={{ scale: 1.04, y: -1 }}
                   whileTap={{ scale: 0.96 }}
-                  className="px-7 py-3.5 w-full sm:w-auto justify-center flex items-center bg-white/[0.05] backdrop-blur-xl border border-white/[0.10] text-foreground/80 rounded-xl hover:border-white/20 hover:bg-white/[0.08] transition-all text-sm font-medium"
+                  className="px-7 py-3.5 w-full sm:w-auto justify-center flex items-center bg-[var(--glass-bg)] backdrop-blur-xl border border-[var(--glass-border)] text-foreground/80 rounded-xl hover:border-[var(--ring)] transition-all text-sm font-medium"
                 >
                   Voir mes projets
                 </motion.a>
@@ -293,19 +293,20 @@ export function Hero() {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.06, y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex flex-1 sm:flex-none justify-center items-center gap-2.5 px-4 sm:px-5 h-12 rounded-xl bg-white/[0.05] backdrop-blur-xl border border-white/[0.09] text-foreground/55 hover:text-sky-400 hover:border-sky-500/40 transition-all"
+                    className="flex flex-1 sm:flex-none justify-center items-center gap-2.5 px-4 sm:px-5 h-12 rounded-xl bg-[var(--glass-bg)] backdrop-blur-xl border border-[var(--glass-border)] text-foreground/70 hover:text-sky-500 hover:border-[var(--ring)] transition-all"
                     aria-label={s.label}
                   >
                     <img
                       src={s.icon}
                       alt={s.label}
-                      className="w-5 h-5 flex-shrink-0 invert opacity-70 hover:opacity-100 transition-opacity"
+                      className="w-5 h-5 flex-shrink-0 opacity-70 hover:opacity-100 transition-opacity"
+                      style={{ filter: "var(--icon-filter)" }}
                     />
                     <span className="text-sm font-medium">{s.label}</span>
                   </motion.a>
                 ))}
 
-                <div className="hidden sm:block w-px h-5 bg-white/12 mx-0.5" />
+                <div className="hidden sm:block w-px h-5 bg-[var(--glass-border)] mx-0.5" />
 
                 <motion.a
                   href="/assets/documents/cv-cyprien-robinaud.pdf"
@@ -313,7 +314,7 @@ export function Hero() {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.04, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="flex w-full sm:w-auto justify-center items-center gap-2.5 px-5 h-12 rounded-xl bg-white/[0.05] backdrop-blur-xl border border-white/[0.09] text-foreground/45 hover:text-foreground/75 hover:border-white/18 transition-all group"
+                  className="flex w-full sm:w-auto justify-center items-center gap-2.5 px-5 h-12 rounded-xl bg-[var(--glass-bg)] backdrop-blur-xl border border-[var(--glass-border)] text-foreground/70 hover:text-foreground hover:border-[var(--ring)] transition-all group"
                   aria-label="Télécharger le CV"
                 >
                   <FileDown className="w-5 h-5 flex-shrink-0 group-hover:-translate-y-0.5 transition-transform" />

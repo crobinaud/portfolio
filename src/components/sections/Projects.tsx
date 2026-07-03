@@ -175,11 +175,11 @@ export function Projects() {
                     className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-[0.65] transition-opacity duration-300"
                   />
 
-                  {/* Contenu de la carte (toujours visible) avec fond très assombri */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#000918] via-[#000918]/70 to-[#000918]/30 flex flex-col p-5">
+                  {/* Contenu de la carte (toujours visible) avec fond dynamique selon le thème */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/30 flex flex-col p-5">
                     {/* Header : Titre + Liens alignés au centre */}
                     <div className="flex justify-between items-center gap-3 mb-3">
-                      <h3 className="text-white text-base lg:text-lg font-bold leading-none drop-shadow-md line-clamp-1">
+                      <h3 className="text-foreground text-base lg:text-lg font-bold leading-none drop-shadow-sm line-clamp-1">
                         {project.title}
                       </h3>
 
@@ -194,13 +194,14 @@ export function Projects() {
                               target="_blank"
                               rel="noopener noreferrer"
                               title={link.label}
-                              className="w-9 h-9 rounded-full bg-white/10 text-white hover:bg-white hover:text-black border border-white/25 flex items-center justify-center transition-all shadow-sm hover:shadow-md hover:scale-105"
+                              className="w-9 h-9 rounded-full bg-[var(--glass-bg)] text-foreground hover:bg-foreground hover:text-background border border-[var(--glass-border)] flex items-center justify-center transition-all shadow-sm hover:shadow-md hover:scale-105"
                             >
                               {typeof link.icon === "string" ? (
                                 <img
                                   src={link.icon}
                                   alt={link.label}
-                                  className="w-4 h-4 invert opacity-80"
+                                  className="w-4 h-4 opacity-80"
+                                  style={{ filter: "var(--icon-filter)" }}
                                 />
                               ) : (
                                 <link.icon className="w-4 h-4" />
@@ -212,7 +213,7 @@ export function Projects() {
 
                     {/* Description au milieu */}
                     <div className="mb-4">
-                      <p className="text-white/90 text-xs lg:text-[13px] leading-relaxed line-clamp-2 drop-shadow-md">
+                      <p className="text-foreground/90 text-xs lg:text-[13px] leading-relaxed line-clamp-2 drop-shadow-sm">
                         {project.desc}
                       </p>
                     </div>
@@ -222,7 +223,7 @@ export function Projects() {
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="px-2 py-0.5 bg-white/15 backdrop-blur-sm border border-white/20 rounded-md text-[9px] lg:text-[10px] text-white/90 font-medium shadow-sm"
+                          className="px-2 py-0.5 bg-[var(--glass-bg)] backdrop-blur-sm border border-[var(--glass-border)] rounded-md text-[9px] lg:text-[10px] text-foreground/90 font-medium shadow-sm"
                         >
                           {tag}
                         </span>

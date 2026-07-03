@@ -10,6 +10,9 @@
   --ring: rgba(56, 189, 248, 0.4);
   --glass-bg: rgba(0, 15, 50, 0.22);
   --glass-border: rgba(56, 189, 248, 0.14);
+  --icon-filter: invert(1);
+  --vignette: rgba(0, 0, 0, 0.55);
+  --nav-active: #7dd3fc;
   --destructive: #ef4444;
 
   /* Accents spatiaux */
@@ -28,6 +31,16 @@
   --ring: rgba(56, 189, 248, 0.4);
   --glass-bg: rgba(0, 15, 50, 0.22);
   --glass-border: rgba(56, 189, 248, 0.14);
+  --icon-filter: invert(1);
+  --vignette: rgba(0, 0, 0, 0.55);
+  --nav-icon: rgba(215, 237, 255, 0.35);
+  --nav-icon-hover: rgba(215, 237, 255, 0.65);
+  --nav-text: rgba(215, 237, 255, 0.4);
+  --nav-text-hover: rgba(215, 237, 255, 0.7);
+  --nav-active-icon: #38bdf8;
+  --nav-active-text: #7dd3fc;
+  --nav-active-bg: rgba(14, 165, 233, 0.12);
+  --nav-active-border: rgba(14, 165, 233, 0.2);
 }
 
 [data-theme="light"] {
@@ -38,6 +51,21 @@
   --ring: rgba(14, 165, 233, 0.35);
   --glass-bg: rgba(240, 247, 255, 0.65);
   --glass-border: rgba(14, 165, 233, 0.2);
+  --icon-filter: invert(0);
+  --vignette: rgba(
+    240,
+    247,
+    255,
+    0.85
+  ); /* Adoucit l'assombrissement en mode clair */
+  --nav-icon: rgba(10, 22, 40, 0.5);
+  --nav-icon-hover: rgba(10, 22, 40, 0.8);
+  --nav-text: rgba(10, 22, 40, 0.5);
+  --nav-text-hover: rgba(10, 22, 40, 0.8);
+  --nav-active-icon: #0284c7;
+  --nav-active-text: #0284c7;
+  --nav-active-bg: rgba(2, 132, 199, 0.1);
+  --nav-active-border: rgba(2, 132, 199, 0.2);
 }
 
 /* ── Tailwind v4 — token mapping ────────────────────────────────── */
@@ -73,7 +101,7 @@
       /* Adaptation fluide augmentée : 2.0dvh permet un rendu beaucoup plus grand 
          (presque 16px sur une petite fenêtre de 700px de haut)
          sans risquer la superposition, et remplit mieux les grands écrans. */
-      font-size: clamp(10px, 2.0dvh, 32px);
+      font-size: clamp(10px, 2dvh, 32px);
     }
   }
 

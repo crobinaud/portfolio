@@ -40,7 +40,7 @@ export function TopNav({ currentSection, onNavigate }: TopNavProps) {
               {isActive && (
                 <motion.div
                   layoutId="nav-pill"
-                  className="absolute inset-0 rounded-full bg-sky-500/12 border border-sky-500/20"
+                  className="absolute inset-0 rounded-full bg-[var(--nav-active-bg)] border border-[var(--nav-active-border)]"
                   transition={{ type: "spring", stiffness: 380, damping: 32 }}
                 />
               )}
@@ -48,16 +48,16 @@ export function TopNav({ currentSection, onNavigate }: TopNavProps) {
               <section.icon
                 className={`relative z-10 w-5 h-5 shrink-0 transition-colors duration-200 ${
                   isActive
-                    ? "text-sky-400"
-                    : "text-foreground/35 group-hover:text-foreground/65"
+                    ? "text-[var(--nav-active-icon)]"
+                    : "text-[var(--nav-icon)] group-hover:text-[var(--nav-icon-hover)]"
                 }`}
               />
 
               <span
                 className={`hidden md:block relative z-10 text-sm font-medium whitespace-nowrap leading-none transition-colors duration-200 ${
                   isActive
-                    ? "text-sky-300"
-                    : "text-foreground/40 group-hover:text-foreground/70"
+                    ? "text-[var(--nav-active-text)]"
+                    : "text-[var(--nav-text)] group-hover:text-[var(--nav-text-hover)]"
                 }`}
               >
                 {section.label}

@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { AppProvider } from "@/context/AppContext";
 import { Starfield } from "@/components/layout/Starfield";
+import { ThemeToggle } from "@/components/layout/ThemeToggle";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -51,9 +52,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr" data-theme="dark" className={inter.variable}>
+    <html lang="fr" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                let theme = localStorage.getItem("theme");
+                if (!theme) {
+                  theme = "dark";
+                }
+                document.documentElement.setAttribute("data-theme", theme);
+              } catch (e) {}
+            `,
+          }}
+        />
+      </head>
       <body>
         <AppProvider>
+          <ThemeToggle />
           <Starfield />
           {children}
         </AppProvider>
