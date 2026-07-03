@@ -22,10 +22,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
   // Initialisation côté client uniquement
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") as Theme | null;
-    if (savedTheme) {
-      setThemeState(savedTheme);
-    } else {
-      setThemeState("dark");
+    if (savedTheme && savedTheme !== "dark") {
+      setTimeout(() => setThemeState(savedTheme), 0);
     }
   }, []);
 
