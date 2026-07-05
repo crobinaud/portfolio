@@ -64,7 +64,7 @@ const ENTRIES: Entry[] = [
   {
     type: "education",
     period: "2025 - 2027",
-    title: "Master Informatique; parcours Architecte Logiciel",
+    title: "Master Informatique; Architecte Logiciel",
     org: "La Rochelle Université",
     location: "La Rochelle",
     logoUrl: "/assets/images/lru_logo.webp",

@@ -99,6 +99,15 @@ function ContactCanvas() {
 export function Contact() {
   const [copied, setCopied] = useState(false);
   const email = "robinaudcyprien@gmail.com";
+  const [footerEmail, setFooterEmail] = useState("");
+
+  useEffect(() => {
+    const parts = ["robinaud", "cyprien", "@", "gmail", ".com"];
+    const timer = setTimeout(() => {
+      setFooterEmail(parts.join(""));
+    }, 0);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleCopy = () => {
     navigator.clipboard.writeText(email);
@@ -198,7 +207,7 @@ export function Contact() {
             <div className="w-full bg-[var(--glass-bg)] backdrop-blur-xl border border-[var(--glass-border)] rounded-3xl overflow-hidden shadow-2xl flex flex-col relative group">
               {/* Bannière */}
               <div
-                className="h-28 w-full bg-cover bg-center relative"
+                className="w-full aspect-[1584/396] bg-cover bg-center relative"
                 style={{ backgroundImage: `url('/assets/images/in_wp.webp')` }}
               />
 
@@ -285,8 +294,17 @@ export function Contact() {
                 <User className="w-3 h-3" /> Éditeur : Cyprien ROBINAUD
               </span>
               <span className="flex items-center justify-center sm:justify-start gap-1.5">
-                <Mail className="w-3 h-3" /> Email :
-                portfolio.domelike991@passinbox.com
+                <Mail className="w-3 h-3" /> Email :{" "}
+                {footerEmail ? (
+                  <a
+                    href={`mailto:${footerEmail}`}
+                    className="hover:underline text-foreground/60 transition-colors"
+                  >
+                    {footerEmail}
+                  </a>
+                ) : (
+                  <span className="text-foreground/30">Affichage...</span>
+                )}
               </span>
             </div>
 

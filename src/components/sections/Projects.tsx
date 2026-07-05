@@ -24,7 +24,7 @@ const PROJECTS: Project[] = [
     title: "L3i — GALACTIC Market",
     desc: "Publication et distribution de paquets Python via une CLI conforme PEP503, avec pipeline CI/CD intégré",
     image: "/assets/images/galactic_overview.webp",
-    tags: ["Python", "Click", "Docker", "GitLab CI/CD"],
+    tags: ["Python", "LaTeX", "Docker", "GitLab"],
     links: [
       {
         label: "Rapport",
@@ -47,7 +47,7 @@ const PROJECTS: Project[] = [
     title: "CDE — Projet spatial",
     desc: "Système logiciel pour le Commandement de l'Espace : architecture microservices avec qualité logicielle industrielle",
     image: "/assets/images/spatiale_overview.webp",
-    tags: ["Python", "FastAPI", "Docker", "GitLab"],
+    tags: ["Next.js", "Python", "Docker", "GitLab"],
     confidential: true,
     links: [],
   },
@@ -55,7 +55,7 @@ const PROJECTS: Project[] = [
     title: "VeriDegree",
     desc: "DApp de certification décentralisée : émission et vérification de diplômes via tokens Soulbound non-transférables",
     image: "/assets/images/veridegree_overview.webp",
-    tags: ["Solidity", "Next.js", "Besu", "MetaMask"],
+    tags: ["Next.js", "Solidity", "Hyperledger Besu", "MetaMask"],
     links: [
       {
         label: "Code",
@@ -73,14 +73,14 @@ const PROJECTS: Project[] = [
     title: "Agentic AI for Retail",
     desc: "Dashboard retail piloté par IA locale : analyse autonome des ventes et détection proactive des seuils critiques",
     image: "/assets/images/agenticai_overview.webp",
-    tags: ["React", "TypeScript", "Python", "LLM"],
+    tags: ["React", "FastAPI", "Python", "IA"],
     links: [{ label: "Rapport", icon: FileText }],
   },
   {
     title: "Portfolio",
     desc: "Portfolio développeur avec déploiement continu automatisé GitHub Actions → Firebase Hosting",
     image: "/assets/images/portfolio_overview.webp",
-    tags: ["Next.js", "TypeScript", "GitHub Actions", "Firebase"],
+    tags: ["Next.js", "SEO / GEO", "Firebase", "GitHub"],
     links: [
       {
         label: "Code",
@@ -93,7 +93,7 @@ const PROJECTS: Project[] = [
     title: "2048",
     desc: "Application Android du jeu 2048 enrichie de fonctionnalités originales, publiable sur Google Play",
     image: "/assets/images/2048_overview.webp",
-    tags: ["Java", "Android Studio", "XML"],
+    tags: ["Java", "Android Studio", "XML", "GitHub"],
     links: [
       { label: "Rapport", icon: FileText },
       {
@@ -121,7 +121,7 @@ const PROJECTS: Project[] = [
     title: "Virus",
     desc: "Virus compagnon universitaire en C : propagation par infection d'exécutables à partir d'un vecteur initial",
     image: "/assets/images/virus_overview.webp",
-    tags: ["C", "Cybersécurité", "Bas niveau", "ELF"],
+    tags: ["C", "Cybersécurité", "Doxygen", "Bas niveau"],
     links: [
       { label: "Rapport", icon: FileText },
       { label: "Code", icon: "/assets/icons/github.svg" },
