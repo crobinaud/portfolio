@@ -12,6 +12,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://crobinaud.web.app"),
+  alternates: {
+    canonical: "/",
+  },
   title: "Portfolio de Cyprien ROBINAUD",
   description:
     "Portfolio de Cyprien Robinaud, étudiant en Master Informatique (Architecte Logiciel) à La Rochelle Université.",
