@@ -11,6 +11,7 @@ import {
   Layout,
   Database,
   Wrench,
+  Shield,
 } from "lucide-react";
 
 const TennisRacket = (props: React.ComponentProps<"svg">) => (
@@ -27,25 +28,35 @@ const TennisRacket = (props: React.ComponentProps<"svg">) => (
 export function About() {
   const topSkills = [
     {
-      name: "Google Cloud (GCP)",
+      title: "Cloud",
+      subtitle: "Google Cloud Computing",
       icon: Cloud,
       color: "text-blue-400",
       bg: "bg-blue-400/10",
       border: "border-blue-400/30",
     },
     {
-      name: "Num. Responsable",
+      title: "Numérique Responsable",
       icon: Leaf,
       color: "text-green-400",
       bg: "bg-green-400/10",
       border: "border-green-400/30",
     },
     {
-      name: "Pix Expert",
+      title: "Pix",
+      subtitle: "657 certifié (2023)",
       icon: Award,
       color: "text-purple-400",
       bg: "bg-purple-400/10",
       border: "border-purple-400/30",
+    },
+    {
+      title: "Cybersécurité",
+      subtitle: "MOOC de l'ANSSI",
+      icon: Shield,
+      color: "text-red-400",
+      bg: "bg-red-400/10",
+      border: "border-red-400/30",
     },
   ];
 
@@ -82,20 +93,20 @@ export function About() {
 
   const passions = [
     {
-      name: "Tennis (Compétition)",
+      name: "Tennis",
       icon: TennisRacket,
       textColor: "text-orange-400",
       bg: "bg-orange-400/10",
       border: "border-orange-400/30",
-      description: "Esprit de compétition et résilience.",
+      description: "Cohésion d'équipe et réactivité.",
     },
     {
-      name: "Voyages & Culture",
+      name: "Voyages",
       icon: Plane,
       textColor: "text-sky-400",
       bg: "bg-sky-400/10",
       border: "border-sky-400/30",
-      description: "Ouverture d'esprit et adaptabilité.",
+      description: "Adaptabilité et ouverture interculturelle.",
     },
     {
       name: "Veille Technologique",
@@ -103,7 +114,7 @@ export function About() {
       textColor: "text-amber-400",
       bg: "bg-amber-400/10",
       border: "border-amber-400/30",
-      description: "Curiosité et apprentissage continu.",
+      description: "Anticipation des tendances technologiques.",
     },
   ];
 
@@ -117,15 +128,15 @@ export function About() {
   ]);
 
   return (
-    <section className="h-full py-12 lg:py-20 w-full flex items-center justify-center relative overflow-hidden">
-      <div className="container mx-auto px-6 lg:px-12 relative z-10 h-full flex flex-col justify-center">
+    <section className="min-h-[100dvh] md:min-h-0 h-full pt-[12dvh] pb-[4dvh] w-full flex flex-col relative overflow-hidden">
+      <div className="container mx-auto px-6 lg:px-12 relative z-10 flex flex-col justify-center my-auto">
         {/* En-tête */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-10 lg:mb-12"
+          className="text-center mb-[4dvh]"
         >
           <span className="inline-block text-sky-500 text-sm tracking-widest uppercase mb-2 font-mono">
             À Propos
@@ -147,7 +158,7 @@ export function About() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="bg-[var(--glass-bg)] backdrop-blur-xl border border-[var(--glass-border)] rounded-3xl p-6 lg:p-7 relative overflow-hidden group h-full flex flex-col justify-center"
+                className="bg-[var(--glass-bg)] backdrop-blur-xl border border-[var(--glass-border)] rounded-3xl p-6 lg:p-5 xl:p-7 relative overflow-hidden group h-full flex flex-col justify-center"
               >
                 <div className="relative z-10">
                   <h3 className="text-xl font-semibold mb-4 text-foreground/90 flex items-center gap-2">
@@ -181,26 +192,29 @@ export function About() {
             {/* Côté Technique (Skills) */}
             <div className="lg:col-span-7 flex flex-col gap-6">
               {/* Top Skills */}
-              <div className="grid sm:grid-cols-3 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {topSkills.map((skill, i) => (
                   <motion.div
-                    key={skill.name}
+                    key={skill.title}
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.3 + i * 0.1 }}
                     viewport={{ once: true }}
-                    className={`flex flex-col items-center justify-center gap-3 p-5 rounded-2xl border ${skill.border} ${skill.bg} hover:-translate-y-1 transition-transform`}
+                    className={`flex flex-col items-center justify-center gap-1 p-3.5 sm:p-5 rounded-2xl border ${skill.border} ${skill.bg} hover:-translate-y-1 transition-transform`}
                   >
-                    <skill.icon className={`w-8 h-8 ${skill.color}`} />
-                    <span className="text-sm font-semibold text-center leading-tight">
-                      {skill.name}
+                    <skill.icon className={`w-7 h-7 ${skill.color} mb-0.5`} />
+                    <span className="text-xs sm:text-sm font-semibold text-center leading-tight">
+                      {skill.title}
+                    </span>
+                    <span className="text-[10px] text-foreground/50 text-center leading-tight">
+                      {skill.subtitle}
                     </span>
                   </motion.div>
                 ))}
               </div>
 
               {/* Complete Background Matrix */}
-              <div className="bg-[var(--glass-bg)] backdrop-blur-xl border border-[var(--glass-border)] rounded-3xl p-5 lg:p-6 flex-grow flex flex-col justify-center">
+              <div className="bg-[var(--glass-bg)] backdrop-blur-xl border border-[var(--glass-border)] rounded-3xl p-5 lg:p-4 xl:p-6 flex-grow flex flex-col justify-center">
                 <div className="grid sm:grid-cols-2 gap-6">
                   {skillCategories.map((category, i) => (
                     <motion.div

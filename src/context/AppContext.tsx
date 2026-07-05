@@ -17,11 +17,37 @@ interface AppContextValue {
 const AppContext = createContext<AppContextValue | null>(null);
 
 export function AppProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("dark");
+  const [theme, setThemeState] = useState<Theme>("dark");
 
-  // Applique le thème sur le DOM via data-theme
+  // Initialisation côté client uniquement
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
+    const savedTheme = localStorage.getItem("theme") as Theme | null;
+    if (savedTheme && savedTheme !== "dark") {
+      setTimeout(() => setThemeState(savedTheme), 0);
+    }
+  }, []);
+
+  const setTheme = (t: Theme) => {
+    setThemeState(t);
+    localStorage.setItem("theme", t);
+    document.documentElement.setAttribute("data-theme", t);
+  };
+
+  // Synchronise le thème initial généré par le script dans layout.tsx
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      const currentTheme = document.documentElement.getAttribute(
+        "data-theme",
+      ) as Theme;
+      if (currentTheme && currentTheme !== theme) {
+        setThemeState(currentTheme);
+      }
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+    return () => observer.disconnect();
   }, [theme]);
 
   return (

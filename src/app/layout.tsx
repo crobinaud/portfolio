@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { AppProvider } from "@/context/AppContext";
 import { Starfield } from "@/components/layout/Starfield";
+import { ThemeToggle } from "@/components/layout/ThemeToggle";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -11,6 +12,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://crobinaud.web.app"),
+  alternates: {
+    canonical: "/",
+  },
   title: "Portfolio de Cyprien ROBINAUD",
   description:
     "Portfolio de Cyprien Robinaud, étudiant en Master Informatique (Architecte Logiciel) à La Rochelle Université.",
@@ -51,9 +56,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr" data-theme="dark" className={inter.variable}>
+    <html lang="fr" suppressHydrationWarning className={inter.variable}>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                let theme = localStorage.getItem("theme");
+                if (!theme) {
+                  theme = "dark";
+                }
+                document.documentElement.setAttribute("data-theme", theme);
+              } catch (e) {}
+            `,
+          }}
+        />
+      </head>
       <body>
         <AppProvider>
+          <ThemeToggle />
           <Starfield />
           {children}
         </AppProvider>

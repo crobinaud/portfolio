@@ -64,7 +64,7 @@ const ENTRIES: Entry[] = [
   {
     type: "education",
     period: "2025 - 2027",
-    title: "Master Informatique; parcours Architecte Logiciel",
+    title: "Master Informatique; Architecte Logiciel",
     org: "La Rochelle Université",
     location: "La Rochelle",
     logoUrl: "/assets/images/lru_logo.webp",
@@ -74,10 +74,10 @@ const ENTRIES: Entry[] = [
     type: "stage",
     period: "Avr - Août 2026",
     title: "Ingénieur logiciel",
-    org: "Commandement de l'Espace",
+    org: "Armée de l'Air et de l'Espace",
     location: "Toulouse",
-    logoUrl: "/assets/images/cde_logo.webp",
-    logoInitials: "CDE",
+    logoUrl: "/assets/images/aae_logo.webp",
+    logoInitials: "AAE",
   },
 ];
 
@@ -164,14 +164,14 @@ export function Timeline() {
   const cols = ENTRIES.length;
 
   return (
-    <section className="h-full py-10 lg:py-14 w-full flex flex-col items-center justify-center relative overflow-hidden">
-      <div className="container mx-auto px-6 lg:px-10 w-full">
+    <section className="min-h-[100dvh] md:min-h-0 h-full pt-[12dvh] pb-[4dvh] w-full flex flex-col relative overflow-hidden">
+      <div className="container mx-auto px-6 lg:px-12 relative z-10 w-full my-auto">
         {/* En-tête */}
-        <div className="mb-14 text-center">
+        <div className="mb-[4dvh] text-center">
           <span className="text-sky-500 text-sm tracking-widest uppercase font-mono mb-2 block">
             Mon Parcours
           </span>
-          <h2 className="text-3xl lg:text-4xl font-semibold text-foreground">
+          <h2 className="text-3xl lg:text-3xl xl:text-4xl font-semibold text-foreground">
             Expériences{" "}
             <span className="text-foreground/50 font-normal italic">
               & formations
@@ -205,7 +205,7 @@ export function Timeline() {
             {ENTRIES.map((entry, i) => (
               <div
                 key={`top-${i}`}
-                className="flex flex-col justify-end pb-4 min-h-[170px]"
+                className="flex flex-col justify-end pb-4 min-h-[9rem] xl:min-h-[11rem]"
               >
                 {i % 2 === 0 ? (
                   <TopCard entry={entry} index={i} />
@@ -260,7 +260,7 @@ export function Timeline() {
             {ENTRIES.map((entry, i) => (
               <div
                 key={`bot-${i}`}
-                className="flex flex-col justify-start pt-4 min-h-[170px]"
+                className="flex flex-col justify-start pt-4 min-h-[9rem] xl:min-h-[11rem]"
               >
                 {i % 2 !== 0 ? (
                   <TopCard entry={entry} index={i} />
