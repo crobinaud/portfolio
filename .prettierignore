@@ -1,9 +1,0 @@
-node_modules/
-.next/
-out/
-build/
-tsconfig.tsbuildinfo
-package-lock.json
-CHANGELOG.md
-coverage/
-.firebase/

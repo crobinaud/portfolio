@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { Briefcase, GraduationCap, Sun } from "lucide-react";
 import { motion } from "motion/react";
-import { GraduationCap, Sun, Briefcase } from "lucide-react";
+import Image from "next/image";
+import { useState } from "react";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Types
@@ -95,15 +96,19 @@ const TYPE_CONFIG: Record<EntryType, { Icon: React.ElementType }> = {
 // Logo
 // ─────────────────────────────────────────────────────────────────────────────
 
-function OrgLogo({ url, initials }: { url: string; initials: string }) {
+function OrgLogo({
+  url,
+  initials,
+}: Readonly<{ url: string; initials: string }>) {
   const [hasError, setHasError] = useState(false);
   return (
     <div className="w-10 h-10 rounded-lg flex-shrink-0 flex items-center justify-center overflow-hidden bg-background border border-[var(--glass-border)] shadow-sm">
       {!hasError && url ? (
-        <img
+        <Image
           src={url}
           alt={initials}
-          loading="lazy"
+          width={40}
+          height={40}
           onError={() => setHasError(true)}
           className="w-full h-full object-contain p-1.5"
         />
@@ -121,7 +126,7 @@ function OrgLogo({ url, initials }: { url: string; initials: string }) {
 // La carte pointe vers le bas (vers le nœud)
 // ─────────────────────────────────────────────────────────────────────────────
 
-function TopCard({ entry, index }: { entry: Entry; index: number }) {
+function TopCard({ entry, index }: Readonly<{ entry: Entry; index: number }>) {
   return (
     <motion.div
       initial={{ opacity: 0, y: -16 }}
@@ -186,7 +191,10 @@ export function Timeline() {
             {ENTRIES.map((entry, i) => {
               const { Icon } = TYPE_CONFIG[entry.type];
               return (
-                <div key={i} className="relative pl-10">
+                <div
+                  key={`${entry.period}-${entry.title}`}
+                  className="relative pl-10"
+                >
                   <div className="absolute left-0 top-1 w-8 h-8 rounded-full bg-background border-2 border-border flex items-center justify-center text-foreground/60 z-10">
                     <Icon size={14} />
                   </div>
@@ -204,7 +212,7 @@ export function Timeline() {
             {/* ── Rangée HAUT (indices pairs : 0, 2, 4) ── */}
             {ENTRIES.map((entry, i) => (
               <div
-                key={`top-${i}`}
+                key={`top-${entry.period}-${entry.title}`}
                 className="flex flex-col justify-end pb-4 min-h-[9rem] xl:min-h-[11rem]"
               >
                 {i % 2 === 0 ? (
@@ -224,7 +232,7 @@ export function Timeline() {
               const { Icon } = TYPE_CONFIG[entry.type];
               return (
                 <div
-                  key={`node-${i}`}
+                  key={`node-${entry.period}-${entry.title}`}
                   className="relative flex items-center justify-center py-1"
                 >
                   {/* Trait gauche */}
@@ -259,7 +267,7 @@ export function Timeline() {
             {/* ── Rangée BAS (indices impairs : 1, 3, 5) ── */}
             {ENTRIES.map((entry, i) => (
               <div
-                key={`bot-${i}`}
+                key={`bot-${entry.period}-${entry.title}`}
                 className="flex flex-col justify-start pt-4 min-h-[9rem] xl:min-h-[11rem]"
               >
                 {i % 2 !== 0 ? (

@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { AppProvider } from "@/context/AppContext";
 import { Starfield } from "@/components/layout/Starfield";
 import { ThemeToggle } from "@/components/layout/ThemeToggle";
+import { AppProvider } from "@/context/AppContext";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -52,13 +52,14 @@ export const viewport: Viewport = {
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="fr" suppressHydrationWarning className={inter.variable}>
       <head>
         <script
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: Needed for dark mode flicker prevention
           dangerouslySetInnerHTML={{
             __html: `
               try {

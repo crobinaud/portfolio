@@ -1,7 +1,8 @@
 "use client";
 
+import { Award, FileText, Presentation } from "lucide-react";
 import { motion } from "motion/react";
-import { FileText, Presentation, Award } from "lucide-react";
+import Image from "next/image";
 
 type ProjectLink = {
   label: string;
@@ -168,11 +169,12 @@ export function Projects() {
                   className="relative w-full h-40 lg:h-36 xl:h-44 bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-2xl overflow-hidden flex flex-col shadow-lg"
                 >
                   {/* Image de fond avec effet de zoom au hover */}
-                  <img
+                  <Image
                     src={project.image}
                     alt={project.title}
-                    loading="lazy"
-                    className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-[0.65] transition-opacity duration-300"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover opacity-40 group-hover:opacity-[0.65] transition-opacity duration-300"
                   />
 
                   {/* Contenu de la carte (toujours visible) avec fond dynamique selon le thème */}
@@ -194,13 +196,17 @@ export function Projects() {
                               target="_blank"
                               rel="noopener noreferrer"
                               title={link.label}
-                              className="w-9 h-9 rounded-full bg-[var(--glass-bg)] text-foreground hover:bg-foreground hover:text-background border border-[var(--glass-border)] flex items-center justify-center transition-all shadow-sm hover:shadow-md hover:scale-105"
+                              aria-label={link.label}
+                              className="w-9 h-9 rounded-full bg-[var(--glass-bg)] text-foreground hover:bg-foreground hover:text-background border border-[var(--glass-border)] flex items-center justify-center transition-all shadow-sm hover:shadow-md hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
                             >
                               {typeof link.icon === "string" ? (
-                                <img
+                                <Image
                                   src={link.icon}
                                   alt={link.label}
-                                  className="w-4 h-4 opacity-80"
+                                  width={16}
+                                  height={16}
+                                  sizes="16px"
+                                  className="opacity-80"
                                   style={{ filter: "var(--icon-filter)" }}
                                 />
                               ) : (
