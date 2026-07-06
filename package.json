@@ -6,10 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
+    "check": "biome check .",
+    "check:write": "biome check --write .",
     "type-check": "tsc --noEmit",
     "prepare": "husky"
   },
@@ -57,6 +55,7 @@
     ]
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.5.2",
     "@commitlint/cli": "^21.2.0",
     "@commitlint/config-conventional": "^21.2.0",
     "@semantic-release/changelog": "^6.0.3",
@@ -65,13 +64,8 @@
     "@types/node": "^22.0.0",
     "@types/react": "^18.3.0",
     "@types/react-dom": "^18.3.0",
-    "eslint": "9.39.4",
-    "eslint-config-next": "16.2.9",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-jsx-a11y": "^6.10.2",
     "husky": "^9.1.7",
     "lint-staged": "^17.0.8",
-    "prettier": "^3.9.4",
     "semantic-release": "^25.0.5",
     "tailwindcss": "^4.1.12",
     "typescript": "^5.7.0"
@@ -82,8 +76,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
+      "biome check --write --no-errors-on-unmatched"
     ]
   }
 }

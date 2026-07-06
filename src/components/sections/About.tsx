@@ -1,18 +1,18 @@
 "use client";
 
-import { motion } from "motion/react";
 import {
-  Cloud,
   Award,
-  Leaf,
-  Plane,
-  Lightbulb,
+  Cloud,
   Code2,
-  Layout,
   Database,
-  Wrench,
+  Layout,
+  Leaf,
+  Lightbulb,
+  Plane,
   Shield,
+  Wrench,
 } from "lucide-react";
+import { motion } from "motion/react";
 
 const TennisRacket = (props: React.ComponentProps<"svg">) => (
   <svg
@@ -21,6 +21,7 @@ const TennisRacket = (props: React.ComponentProps<"svg">) => (
     fill="currentColor"
     {...props}
   >
+    <title>Raquette de tennis</title>
     <path d="m147-144-51-51 120-120q45-45 58.5-86.5T288-540q0-61 25.5-119T387-765q88-88 195-100t176 59q69 71 57 177.5T717-435q-48 48-106 73.5T492-336q-97 0-138.5 13.5T267-264L147-144Zm249-300q46 46 126.5 33.5T666-486q63-64 75.5-144T708-755q-46-45-126.5-33.5T438-714q-63 63-75.5 143.5T396-444ZM570-66q-42-42-42-102t42-102q42-42 102-42t102 42q42 42 42 102T774-66q-42 42-102 42T570-66Zm153-51q21-21 21-51t-21-51q-21-21-51-21t-51 21q-21 21-21 51t21 51q21 21 51 21t51-21Zm-51-51Z" />
   </svg>
 );
@@ -143,9 +144,10 @@ export function About() {
           </span>
           {/* prettier-ignore */}
           <h2 className="text-3xl lg:text-4xl">
-            De la conception technique au
-            {" "}
-            <span className="italic text-foreground/50">pilotage de projet</span>
+            De la conception technique au{" "}
+            <span className="italic text-foreground/50">
+              pilotage de projet
+            </span>
           </h2>
         </motion.div>
 
@@ -168,13 +170,21 @@ export function About() {
                   <div className="space-y-4 text-foreground/80 leading-relaxed text-sm lg:text-base">
                     {/* prettier-ignore */}
                     <p>
-                      <strong className="text-foreground/90 font-medium">Tombé dans l'informatique dès l'enfance</strong>
+                      <strong className="text-foreground/90 font-medium">
+                        Tombé dans l'informatique dès l'enfance
+                      </strong>
                       {", j'ai rapidement voulu "}
-                      <strong className="text-foreground/90 font-medium">créer mes propres solutions</strong>
+                      <strong className="text-foreground/90 font-medium">
+                        créer mes propres solutions
+                      </strong>
                       {". De mes premiers sites web au collège jusqu'à ma "}
-                      <strong className="text-foreground/90 font-medium">spécialisation en études supérieures</strong>
+                      <strong className="text-foreground/90 font-medium">
+                        spécialisation en études supérieures
+                      </strong>
                       {", j'ai transformé cette curiosité en "}
-                      <strong className="text-foreground/90 font-medium">véritable expertise</strong>
+                      <strong className="text-foreground/90 font-medium">
+                        véritable expertise
+                      </strong>
                       {"."}
                     </p>
                     <p>

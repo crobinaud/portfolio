@@ -1,7 +1,7 @@
 "use client";
 
+import { Award, FileText, Presentation } from "lucide-react";
 import { motion } from "motion/react";
-import { FileText, Presentation, Award } from "lucide-react";
 import Image from "next/image";
 
 type ProjectLink = {

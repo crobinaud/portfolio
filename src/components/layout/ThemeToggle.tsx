@@ -1,7 +1,7 @@
 "use client";
 
+import { Moon, Sun } from "lucide-react";
 import { motion } from "motion/react";
-import { Sun, Moon } from "lucide-react";
 import { useApp } from "@/context/AppContext";
 
 export function ThemeToggle() {

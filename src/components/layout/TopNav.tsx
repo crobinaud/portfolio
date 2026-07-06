@@ -1,7 +1,7 @@
 "use client";
 
+import { Briefcase, Calendar, Home, Mail, Moon, Sun, User } from "lucide-react";
 import { motion } from "motion/react";
-import { Home, User, Briefcase, Calendar, Mail, Sun, Moon } from "lucide-react";
 import { useApp } from "@/context/AppContext";
 
 interface TopNavProps {
@@ -34,6 +34,7 @@ export function TopNav({ currentSection, onNavigate }: Readonly<TopNavProps>) {
           const isActive = currentSection === i;
           return (
             <button
+              type="button"
               key={section.id}
               onClick={() => onNavigate(i)}
               aria-label={section.label}
@@ -73,6 +74,7 @@ export function TopNav({ currentSection, onNavigate }: Readonly<TopNavProps>) {
         {/* Séparateur et Toggle Thème Mobile */}
         <div className="w-px h-5 bg-[var(--glass-border)] mx-1 md:hidden" />
         <button
+          type="button"
           onClick={() => setTheme(isDark ? "light" : "dark")}
           className="relative flex items-center justify-center p-2 rounded-full text-[var(--nav-icon)] hover:text-[var(--nav-icon-hover)] transition-colors duration-200 md:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
           aria-label="Basculer le thème"

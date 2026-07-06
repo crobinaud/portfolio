@@ -1,9 +1,9 @@
 "use client";
 
+import { Check, Copy, Mail, MapPin, User } from "lucide-react";
 import { motion } from "motion/react";
-import { useEffect, useRef, useState } from "react";
-import { MapPin, Mail, User, Copy, Check } from "lucide-react";
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 
 import { useApp } from "@/context/AppContext";
 
@@ -13,8 +13,10 @@ function ContactCanvas() {
   const { theme } = useApp();
 
   useEffect(() => {
-    const canvas = canvasRef.current!;
-    const ctx = canvas.getContext("2d")!;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
 
     const resize = () => {
       canvas.width = canvas.offsetWidth;
@@ -168,9 +170,10 @@ export function Contact() {
               </div>
               <p className="text-foreground/85 leading-relaxed text-sm sm:text-base">
                 À la recherche d'une alternance pour 2026. Passionné par le{" "}
-                <strong>DevOps</strong>, l'
+                <strong>DevOps</strong>, l'{" "}
                 <strong>architecture logicielle</strong> et la coordination
-                d'équipe (<strong>Assistant / Chef de projet</strong>). <br />
+                d'équipe ( <strong>Assistant / Chef de projet</strong>
+                ). <br />
                 <span className="mt-2.5 block font-semibold text-sky-400">
                   Un projet à me proposer ? Échangeons dès maintenant !
                 </span>
@@ -243,6 +246,7 @@ export function Contact() {
                         stroke="currentColor"
                         strokeWidth="4"
                       >
+                        <title>Profil vérifié</title>
                         <path
                           d="M20 6L9 17L4 12"
                           strokeLinecap="round"

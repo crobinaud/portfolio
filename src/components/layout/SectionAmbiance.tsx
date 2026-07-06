@@ -41,7 +41,7 @@ const AMBIANCES = [
   },
 ];
 
-export function SectionAmbiance({ section }: SectionAmbiance) {
+export function SectionAmbiance({ section }: Readonly<SectionAmbiance>) {
   const ambiance = AMBIANCES[section];
   if (!ambiance) return null;
 
@@ -55,8 +55,12 @@ export function SectionAmbiance({ section }: SectionAmbiance) {
       className="fixed inset-0 pointer-events-none z-0"
       aria-hidden
     >
-      {ambiance.orbs.map((orb, i) => (
-        <div key={i} className="absolute inset-0" style={{ background: orb }} />
+      {ambiance.orbs.map((orb) => (
+        <div
+          key={orb}
+          className="absolute inset-0"
+          style={{ background: orb }}
+        />
       ))}
     </motion.div>
   );
