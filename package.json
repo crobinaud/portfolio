@@ -1,6 +1,6 @@
 {
   "name": "portfolio",
-  "version": "1.0.4",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -25,11 +25,7 @@
   },
   "release": {
     "branches": [
-      "main",
-      {
-        "name": "develop",
-        "prerelease": "beta"
-      }
+      "main"
     ],
     "plugins": [
       "@semantic-release/commit-analyzer",

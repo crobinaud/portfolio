@@ -8,6 +8,9 @@ export function Starfield() {
   const { theme } = useApp();
 
   useEffect(() => {
+    // Skip animation entirely on mobile to preserve CPU/battery
+    if (window.innerWidth < 768) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -26,23 +29,31 @@ export function Starfield() {
     let w = 0;
     let h = 0;
 
+    // Use crypto.getRandomValues to satisfy Biome's security linter
+    const secureRandom = () => {
+      const array = new Uint32Array(1);
+      window.crypto.getRandomValues(array);
+      return array[0] / (0xffffffff + 1);
+    };
+
     const initStars = () => {
       w = window.innerWidth;
       h = window.innerHeight;
       canvas.width = w;
       canvas.height = h;
 
-      const numStars = Math.floor((w * h) / 4000); // Responsive star count
+      // Halved density vs original (/4000) for better performance
+      const numStars = Math.floor((w * h) / 8000);
       stars = [];
       for (let i = 0; i < numStars; i++) {
         stars.push({
-          x: Math.random() * w,
-          y: Math.random() * h,
-          r: Math.random() * 1.5,
-          dx: (Math.random() - 0.5) * 0.15,
-          dy: (Math.random() - 0.5) * 0.15,
-          alpha: Math.random(),
-          dAlpha: Math.random() * 0.02 - 0.01,
+          x: secureRandom() * w,
+          y: secureRandom() * h,
+          r: secureRandom() * 1.5,
+          dx: (secureRandom() - 0.5) * 0.15,
+          dy: (secureRandom() - 0.5) * 0.15,
+          alpha: secureRandom(),
+          dAlpha: secureRandom() * 0.02 - 0.01,
         });
       }
     };
@@ -51,10 +62,8 @@ export function Starfield() {
       ctx.clearRect(0, 0, w, h);
 
       const isDark = theme === "dark";
-      // Espace profond : ciel léger bleu pour clair, transparent pour sombre (géré par globals.css background)
-      ctx.fillStyle = isDark ? "rgba(255, 255, 255, " : "rgba(14, 165, 233, ";
 
-      stars.forEach((star) => {
+      for (const star of stars) {
         // Move
         star.x += star.dx;
         star.y += star.dy;
@@ -80,7 +89,7 @@ export function Starfield() {
           ? `rgba(215, 237, 255, ${star.alpha})`
           : `rgba(14, 165, 233, ${star.alpha * 0.5})`;
         ctx.fill();
-      });
+      }
 
       animationFrameId = requestAnimationFrame(draw);
     };
@@ -89,6 +98,12 @@ export function Starfield() {
     draw();
 
     const handleResize = () => {
+      // Re-check mobile breakpoint on resize
+      if (window.innerWidth < 768) {
+        cancelAnimationFrame(animationFrameId);
+        ctx.clearRect(0, 0, w, h);
+        return;
+      }
       initStars();
     };
 
