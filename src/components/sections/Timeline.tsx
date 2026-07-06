@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 import { GraduationCap, Sun, Briefcase } from "lucide-react";
+import Image from "next/image";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Types
@@ -100,10 +101,11 @@ function OrgLogo({ url, initials }: { url: string; initials: string }) {
   return (
     <div className="w-10 h-10 rounded-lg flex-shrink-0 flex items-center justify-center overflow-hidden bg-background border border-[var(--glass-border)] shadow-sm">
       {!hasError && url ? (
-        <img
+        <Image
           src={url}
           alt={initials}
-          loading="lazy"
+          width={40}
+          height={40}
           onError={() => setHasError(true)}
           className="w-full h-full object-contain p-1.5"
         />

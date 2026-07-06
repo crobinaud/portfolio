@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { useState, useEffect, useRef } from "react";
 import { ArrowDown, Mail, FileDown } from "lucide-react";
+import Image from "next/image";
 
 // ── Arrière-plan constellation de particules ──────────────────────
 function ParticleCanvas() {
@@ -24,14 +25,21 @@ function ParticleCanvas() {
       mouse.y = e.clientY;
     });
 
+    // Helper to bypass strict static analysis (sonar) for pseudorandomness
+    const secureRandom = () => {
+      const array = new Uint32Array(1);
+      window.crypto.getRandomValues(array);
+      return array[0] / (0xffffffff + 1);
+    };
+
     const N = 140;
     type P = { x: number; y: number; vx: number; vy: number; r: number };
     const pts: P[] = Array.from({ length: N }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.32,
-      vy: (Math.random() - 0.5) * 0.32,
-      r: Math.random() * 1.6 + 0.5,
+      x: secureRandom() * canvas.width,
+      y: secureRandom() * canvas.height,
+      vx: (secureRandom() - 0.5) * 0.32,
+      vy: (secureRandom() - 0.5) * 0.32,
+      r: secureRandom() * 1.6 + 0.5,
     }));
 
     const LINK = 155;
@@ -178,13 +186,13 @@ export function Hero() {
                     </span>
                   </div>
                 ) : (
-                  <img
+                  <Image
                     src="https://gravatar.com/avatar/f675b67bcdb8f19096f687531f3cc3890612bcf8a6e8dcd46be05896b48837bd?s=400"
                     alt="Cyprien ROBINAUD"
-                    referrerPolicy="no-referrer"
                     width={400}
                     height={400}
-                    fetchPriority="high"
+                    priority
+                    unoptimized
                     onError={() => setPhotoError(true)}
                     className="relative w-full h-full rounded-full object-cover bg-background z-10"
                     style={{ border: "1px solid var(--glass-border)" }}
@@ -251,7 +259,7 @@ export function Hero() {
                   href="#contact"
                   whileHover={{ scale: 1.04, y: -1 }}
                   whileTap={{ scale: 0.96 }}
-                  className="px-7 py-3.5 w-full sm:w-auto justify-center bg-gradient-to-r from-sky-500 to-blue-600 text-white rounded-xl flex items-center gap-2.5 shadow-lg shadow-blue-500/20 hover:shadow-sky-500/25 transition-shadow group text-sm font-medium"
+                  className="px-7 py-3.5 w-full sm:w-auto justify-center bg-gradient-to-r from-sky-500 to-blue-600 text-white rounded-xl flex items-center gap-2.5 shadow-lg shadow-blue-500/20 hover:shadow-sky-500/25 transition-shadow group text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   Prendre contact
                   <Mail className="w-4 h-4 group-hover:rotate-12 transition-transform" />
@@ -261,7 +269,7 @@ export function Hero() {
                   href="#projects"
                   whileHover={{ scale: 1.04, y: -1 }}
                   whileTap={{ scale: 0.96 }}
-                  className="px-7 py-3.5 w-full sm:w-auto justify-center flex items-center bg-[var(--glass-bg)] backdrop-blur-xl border border-[var(--glass-border)] text-foreground/80 rounded-xl hover:border-[var(--ring)] transition-all text-sm font-medium"
+                  className="px-7 py-3.5 w-full sm:w-auto justify-center flex items-center bg-[var(--glass-bg)] backdrop-blur-xl border border-[var(--glass-border)] text-foreground/80 rounded-xl hover:border-[var(--ring)] transition-all text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   Voir mes projets
                 </motion.a>
@@ -293,13 +301,15 @@ export function Hero() {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.06, y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex flex-1 sm:flex-none justify-center items-center gap-2.5 px-4 sm:px-5 h-12 rounded-xl bg-[var(--glass-bg)] backdrop-blur-xl border border-[var(--glass-border)] text-foreground/70 hover:text-sky-500 hover:border-[var(--ring)] transition-all"
+                    className="flex flex-1 sm:flex-none justify-center items-center gap-2.5 px-4 sm:px-5 h-12 rounded-xl bg-[var(--glass-bg)] backdrop-blur-xl border border-[var(--glass-border)] text-foreground/70 hover:text-sky-500 hover:border-[var(--ring)] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                     aria-label={s.label}
                   >
-                    <img
+                    <Image
                       src={s.icon}
                       alt={s.label}
-                      className="w-5 h-5 flex-shrink-0 opacity-70 hover:opacity-100 transition-opacity"
+                      width={20}
+                      height={20}
+                      className="flex-shrink-0 opacity-70 hover:opacity-100 transition-opacity"
                       style={{ filter: "var(--icon-filter)" }}
                     />
                     <span className="text-sm font-medium">{s.label}</span>
@@ -314,7 +324,7 @@ export function Hero() {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.04, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="flex w-full sm:w-auto justify-center items-center gap-2.5 px-5 h-12 rounded-xl bg-[var(--glass-bg)] backdrop-blur-xl border border-[var(--glass-border)] text-foreground/70 hover:text-foreground hover:border-[var(--ring)] transition-all group"
+                  className="flex w-full sm:w-auto justify-center items-center gap-2.5 px-5 h-12 rounded-xl bg-[var(--glass-bg)] backdrop-blur-xl border border-[var(--glass-border)] text-foreground/70 hover:text-foreground hover:border-[var(--ring)] transition-all group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                   aria-label="Télécharger le CV"
                 >
                   <FileDown className="w-5 h-5 flex-shrink-0 group-hover:-translate-y-0.5 transition-transform" />

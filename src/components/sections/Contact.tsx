@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { MapPin, Mail, User, Copy, Check } from "lucide-react";
+import Image from "next/image";
 
 import { useApp } from "@/context/AppContext";
 
@@ -182,7 +183,7 @@ export function Contact() {
                 onClick={handleCopy}
                 whileHover={{ scale: 1.04, y: -1 }}
                 whileTap={{ scale: 0.96 }}
-                className="px-5 py-3.5 bg-[var(--glass-bg)] backdrop-blur-xl text-foreground/90 rounded-xl flex items-center justify-center gap-2.5 border border-[var(--glass-border)] hover:border-[var(--ring)] hover:bg-[var(--glass-bg)] shadow-lg hover:shadow-sky-500/5 transition-all text-sm font-medium whitespace-nowrap flex-1"
+                className="px-5 py-3.5 bg-[var(--glass-bg)] backdrop-blur-xl text-foreground/90 rounded-xl flex items-center justify-center gap-2.5 border border-[var(--glass-border)] hover:border-[var(--ring)] hover:bg-[var(--glass-bg)] shadow-lg hover:shadow-sky-500/5 transition-all text-sm font-medium whitespace-nowrap flex-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 {copied ? (
                   <Check className="w-4.5 h-4.5 text-green-400 shrink-0" />
@@ -215,12 +216,12 @@ export function Contact() {
               <div className="px-6 pb-6 relative flex flex-col pt-12 flex-1">
                 {/* Photo de profil (overlaps banner) */}
                 <div className="absolute -top-10 left-6 w-20 h-20 rounded-full border-4 border-[var(--glass-border)] overflow-hidden bg-background shadow-md">
-                  <img
+                  <Image
                     src="https://gravatar.com/avatar/f675b67bcdb8f19096f687531f3cc3890612bcf8a6e8dcd46be05896b48837bd?s=150"
                     alt="Cyprien Robinaud"
                     width={150}
                     height={150}
-                    loading="lazy"
+                    unoptimized
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -266,7 +267,7 @@ export function Contact() {
                   href="https://www.linkedin.com/in/crobinaud"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-6 w-full py-2 bg-[#0A66C2] hover:bg-[#004182] text-white rounded-full text-xs font-semibold text-center flex items-center justify-center gap-1.5 transition-colors shadow-lg shadow-[#0A66C2]/20 hover:shadow-[#0A66C2]/40"
+                  className="mt-6 w-full py-2 bg-[#0A66C2] hover:bg-[#004182] text-white rounded-full text-xs font-semibold text-center flex items-center justify-center gap-1.5 transition-colors shadow-lg shadow-[#0A66C2]/20 hover:shadow-[#0A66C2]/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0A66C2] focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   <span>Voir le profil</span>
                   <User className="w-3 h-3" />
@@ -298,7 +299,7 @@ export function Contact() {
                 {footerEmail ? (
                   <a
                     href={`mailto:${footerEmail}`}
-                    className="hover:underline text-foreground/60 transition-colors"
+                    className="hover:underline text-foreground/60 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-sky-400 rounded"
                   >
                     {footerEmail}
                   </a>
