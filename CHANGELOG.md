@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/crobinaud/portfolio/compare/v1.0.0...v1.0.1) (2026-07-06)
+
+
+### Bug Fixes
+
+* **ci:** trigger workflow on all pull requests ([68d7931](https://github.com/crobinaud/portfolio/commit/68d7931433217d34cfb8e1851d4bc105e1d91d4a))
+
 # 1.0.0 (2026-07-05)
 
 
