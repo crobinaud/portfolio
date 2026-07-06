@@ -14,7 +14,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://crobinaud.web.app"),
   alternates: {
-    canonical: "/",
+    canonical: "https://crobinaud.web.app",
   },
   title: "Portfolio de Cyprien ROBINAUD",
   description:
@@ -37,6 +37,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
+    url: "https://crobinaud.web.app",
     locale: "fr_FR",
     title: "Portfolio de Cyprien ROBINAUD",
     description:
@@ -58,6 +59,12 @@ export default function RootLayout({
   return (
     <html lang="fr" suppressHydrationWarning className={inter.variable}>
       <head>
+        <link
+          rel="preconnect"
+          href="https://gravatar.com"
+          crossOrigin="anonymous"
+        />
+        <link rel="dns-prefetch" href="https://gravatar.com" />
         <script
           // biome-ignore lint/security/noDangerouslySetInnerHtml: Needed for dark mode flicker prevention
           dangerouslySetInnerHTML={{

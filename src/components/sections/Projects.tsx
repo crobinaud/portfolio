@@ -173,6 +173,7 @@ export function Projects() {
                     src={project.image}
                     alt={project.title}
                     fill
+                    loading="lazy"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover opacity-40 group-hover:opacity-[0.65] transition-opacity duration-300"
                   />

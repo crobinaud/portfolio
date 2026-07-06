@@ -34,7 +34,7 @@ function ParticleCanvas() {
       return array[0] / (0xffffffff + 1);
     };
 
-    const N = 140;
+    const N = 70;
     type P = { x: number; y: number; vx: number; vy: number; r: number };
     const pts: P[] = Array.from({ length: N }, () => ({
       x: secureRandom() * canvas.width,
@@ -44,8 +44,8 @@ function ParticleCanvas() {
       r: secureRandom() * 1.6 + 0.5,
     }));
 
-    const LINK = 155;
-    const MGLOW = 140;
+    const LINK = 130;
+    const MGLOW = 120;
     let raf: number;
 
     const draw = () => {
@@ -155,7 +155,10 @@ export function Hero() {
 
   return (
     <section className="min-h-[100dvh] md:min-h-0 h-full w-full flex flex-col relative overflow-hidden pt-[12dvh] pb-[4dvh]">
-      <ParticleCanvas />
+      {/* ParticleCanvas hidden on mobile to prevent CPU saturation */}
+      <div className="hidden md:block">
+        <ParticleCanvas />
+      </div>
 
       {/* Vignette radiale */}
       <div
@@ -292,7 +295,7 @@ export function Hero() {
                   },
                   {
                     icon: "/assets/icons/linkedin.svg",
-                    href: "https://www.linkedin.com/in/crobinaud ",
+                    href: "https://www.linkedin.com/in/crobinaud",
                     label: "LinkedIn",
                   },
                 ].map((s) => (
@@ -343,7 +346,7 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4, duration: 0.8 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-foreground/25"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-foreground/50"
       >
         <span className="text-[9px] uppercase tracking-[0.25em] font-mono">
           Scroll
