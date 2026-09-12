@@ -8,7 +8,10 @@
     "start": "next start",
     "check": "biome check .",
     "check:write": "biome check --write .",
+    "ci:check": "biome ci --error-on-warnings .",
+    "audit": "npm audit --audit-level=moderate",
     "type-check": "tsc --noEmit",
+    "validate": "npm run ci:check && npm run audit && npm run type-check && npm run build",
     "prepare": "husky"
   },
   "dependencies": {
@@ -71,7 +74,7 @@
     "postcss": "^8.5.10"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
+    "*.{js,jsx,ts,tsx,json,css}": [
       "biome check --write --no-errors-on-unmatched"
     ]
   }
