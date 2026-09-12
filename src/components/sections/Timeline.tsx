@@ -1,6 +1,6 @@
 "use client";
 
-import { Briefcase, GraduationCap, Sun } from "lucide-react";
+import { Briefcase, GraduationCap, School, Sun } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
 import { useState } from "react";
@@ -9,7 +9,7 @@ import { useState } from "react";
 // Types
 // ─────────────────────────────────────────────────────────────────────────────
 
-type EntryType = "education" | "stage" | "job";
+type EntryType = "education" | "stage" | "job" | "alternance";
 
 interface Entry {
   type: EntryType;
@@ -47,7 +47,7 @@ const ENTRIES: Entry[] = [
   {
     type: "stage",
     period: "Avr - Juin 2025",
-    title: "Ingénieur logiciel",
+    title: "Développeur logiciel",
     org: "Laboratoire Informatique, Image et Interaction",
     location: "La Rochelle",
     logoUrl: "/assets/images/l3i_logo.webp",
@@ -74,11 +74,20 @@ const ENTRIES: Entry[] = [
   {
     type: "stage",
     period: "Avr - Août 2026",
-    title: "Ingénieur logiciel",
+    title: "Développeur logiciel",
     org: "Armée de l'Air et de l'Espace",
     location: "Toulouse",
     logoUrl: "/assets/images/aae_logo.webp",
     logoInitials: "AAE",
+  },
+  {
+    type: "alternance",
+    period: "Oct 2026 - Actuellement",
+    title: "Développeur de solutions technologiques",
+    org: "BPCE Solutions Informatiques",
+    location: "Bordeaux",
+    logoUrl: "/assets/images/bpce_logo.webp",
+    logoInitials: "BPCE-SI",
   },
 ];
 
@@ -90,6 +99,7 @@ const TYPE_CONFIG: Record<EntryType, { Icon: React.ElementType }> = {
   education: { Icon: GraduationCap },
   stage: { Icon: Briefcase },
   job: { Icon: Sun },
+  alternance: { Icon: School },
 };
 
 // ─────────────────────────────────────────────────────────────────────────────

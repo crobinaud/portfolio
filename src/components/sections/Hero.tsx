@@ -248,8 +248,7 @@ export function Hero() {
                 className="mb-8 lg:mb-10"
               >
                 <p className="text-lg lg:text-2xl text-foreground/70 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                  À la recherche d'une alternance — disponible dès septembre
-                  2026
+                  Alternant en développement de solutions technologiques
                 </p>
               </motion.div>
 

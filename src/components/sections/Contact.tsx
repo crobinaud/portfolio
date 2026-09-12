@@ -169,13 +169,14 @@ export function Contact() {
                 </h3>
               </div>
               <p className="text-foreground/85 leading-relaxed text-sm sm:text-base">
-                À la recherche d'une alternance pour 2026. Passionné par le{" "}
-                <strong>DevOps</strong>, l'{" "}
-                <strong>architecture logicielle</strong> et la coordination
-                d'équipe ( <strong>Assistant / Chef de projet</strong>
-                ). <br />
+                Passionné par le <strong>DevOps</strong>, l'{" "}
+                <strong>architecture logicielle</strong> et la gestion de projet
+                (<strong>Assistant / Chef de projet</strong>). Toujours ouvert
+                aux échanges techniques et aux opportunités de collaboration.{" "}
+                <br />
                 <span className="mt-2.5 block font-semibold text-sky-400">
-                  Un projet à me proposer ? Échangeons dès maintenant !
+                  Une question, une opportunité ou un projet ? Échangeons dès
+                  maintenant !
                 </span>
               </p>
             </div>
