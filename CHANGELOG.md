@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/crobinaud/portfolio/compare/v1.0.2...v1.1.0) (2026-09-12)
+
+
+### Features
+
+* **profile:** update status, resume and add BPCE-SI apprenticeship ([cfb787c](https://github.com/crobinaud/portfolio/commit/cfb787c176e850ce218a4fc5857f1ef2bf1156c3))
+
 ## [1.0.2](https://github.com/crobinaud/portfolio/compare/v1.0.1...v1.0.2) (2026-07-06)
 
 
