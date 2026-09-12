@@ -1,67 +1,108 @@
-# 🚀 Cyprien's Portfolio
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/crobinaud/portfolio">
+    <img src="public/favicon.ico" alt="Logo" width="80" height="80">
+  </a>
 
-A modern, responsive personal portfolio website built with cutting-edge web technologies.
+<h3 align="center">Cyprien's Portfolio</h3>
 
-[![CI/CD Status](https://img.shields.io/github/actions/workflow/status/crobinaud/portfolio/ci-cd.yml?branch=main&style=for-the-badge&logo=github&label=CI%2FCD)](https://github.com/crobinaud/portfolio/actions/workflows/ci-cd.yml)
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![Biome](https://img.shields.io/badge/Biome-60A5FA?style=for-the-badge&logo=biome&logoColor=white)
-![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
-[![semantic-release](https://img.shields.io/badge/semantic--release-e10079?logo=semantic-release&style=for-the-badge)](https://github.com/semantic-release/semantic-release)
+  <p align="center">
+    A modern, responsive personal portfolio website built with cutting-edge web technologies.
+    <br />
+    <br />
+    <a href="https://crobinaud.web.app"><strong>View Live Demo »</strong></a>
+  </p>
+</div>
 
-## ✨ Features
+<!-- TABLE OF CONTENTS -->
+## Table of Contents
 
-- **App Router**: Uses Next.js App Router for optimized layouts and server-side rendering.
-- **Animations**: Fluid and modern animations powered by [Motion](https://motion.dev/).
-- **Styling**: Utility-first styling with Tailwind CSS v4.
-- **Tooling**: Lightning-fast formatting and linting via [Biome](https://biomejs.dev/).
-- **Deployment**: Automated CI/CD pipeline deploying to Firebase Hosting.
+1. [About The Project](#about-the-project)
+   - [Built With](#built-with)
+2. [Getting Started](#getting-started)
+   - [Prerequisites](#prerequisites)
+   - [Installation](#installation)
+3. [Usage](#usage)
 
-## 🚀 Getting Started
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+[![Portfolio Preview][product-screenshot]](https://crobinaud.web.app)
+
+A modern, high-performance personal portfolio designed to present my software engineering background, projects, and technical skills. Built with a focus on clean aesthetics and developer ergonomics, it combines server-side static generation, fluid micro-animations, full dark/light theme versatility, and an automated DevSecOps delivery pipeline.
+
+### Built With
+
+* [![Next.js][Next.js]][Next-url]
+* [![React][React.js]][React-url]
+* [![TypeScript][TypeScript]][TypeScript-url]
+* [![Tailwind CSS][TailwindCSS]][Tailwind-url]
+* [![Biome][Biome]][Biome-url]
+* [![Firebase][Firebase]][Firebase-url]
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+To get a local copy up and running, follow these simple steps.
 
 ### Prerequisites
 
-Make sure you have Node.js installed (v22+ recommended).
+Ensure you have Node.js installed (v22+ recommended).
+* npm
+  ```sh
+  npm install npm@latest -g
+  ```
 
 ### Installation
 
-1. Clone the repository and navigate to the project directory:
-   ```bash
+1. Clone the repo
+   ```sh
    git clone https://github.com/crobinaud/portfolio.git
    cd portfolio
    ```
-
-2. Install the dependencies:
-   ```bash
+2. Install NPM packages
+   ```sh
    npm ci
    ```
 
-## 🛠️ Development
+<!-- USAGE EXAMPLES -->
+## Usage
 
-Run the local development server with Turbopack for ultra-fast startup:
+Run the local development server with Turbopack for fast startup:
 
-```bash
+```sh
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## 📋 Scripts
+### Available Scripts
 
-- `npm run dev`: Starts the Next.js development server with Turbopack.
-- `npm run build`: Builds the production-ready application.
-- `npm run start`: Starts the production server after building.
-- `npm run check`: Lints and formats code files using Biome.
-- `npm run check:write`: Automatically fixes Biome warnings and formats code.
-- `npm run type-check`: Runs TypeScript compiler check without emitting files.
+| Script | Description |
+| :--- | :--- |
+| `npm run dev` | Starts local Next.js dev server with Turbopack |
+| `npm run build` | Builds static production bundle into `out/` |
+| `npm run check` | Checks formatting and lints code via Biome |
+| `npm run check:write` | Automatically fixes linting & formatting issues |
+| `npm run ci:check` | Strict Biome validation (`--error-on-warnings`) |
+| `npm run audit` | Scans dependencies for security vulnerabilities |
+| `npm run type-check` | Performs TypeScript compiler check (`tsc --noEmit`) |
+| `npm run validate` | Runs full suite (`ci:check`, `audit`, `type-check`, `build`) |
 
-## 📏 Commit Guidelines
 
-This project uses [commitlint](https://commitlint.js.org/) and semantic-release. Commits must follow the **Conventional Commits** specification:
-
-```text
-<type>(<scope>): <subject>
-```
-
-**Common types:** `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`, `revert`.
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[product-screenshot]: public/assets/images/in_wp.webp
+[Next.js]: https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
+[Next-url]: https://nextjs.org/
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
+[TypeScript]: https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white
+[TypeScript-url]: https://www.typescriptlang.org/
+[TailwindCSS]: https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white
+[Tailwind-url]: https://tailwindcss.com/
+[Biome]: https://img.shields.io/badge/Biome-60A5FA?style=for-the-badge&logo=biome&logoColor=white
+[Biome-url]: https://biomejs.dev/
+[Firebase]: https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black
+[Firebase-url]: https://firebase.google.com/
